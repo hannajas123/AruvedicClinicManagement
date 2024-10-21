@@ -1,0 +1,24 @@
+{% extends "doctor/doctorhomeindex.html" %}
+{% block body %}
+<form id="form4" name="form4" method="post" action="/myapp/doctor_Addschedulepost/">
+    {% csrf_token %}
+<table class="table table-bordered">
+  <tr>
+    <th scope="row">Date</th>
+    <td><input type="date" name="textfield" id="textfield"  class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">From Time</th>
+    <td><input type="time" name="textfield2" id="textfield2"  class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">To Time</th>
+    <td><input type="time" name="textfield3" id="textfield3"  class="form-control" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">
+    </th>
+    <td align="center" colspan="2"><input type="submit" value="ADD" class="btn btn-success"/></td>
+  </tr>
+</table></form>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "staff/staffhomeindex.html" %}
+{% block body %}
+<form action="/myapp/staff_viewrejectedtpbookingpost/" method="post">
+    <table class="table table-bordered">
+    {% csrf_token %}
+  <tr>
+      <input type="hidden" name="id" value="{{ id }}" />
+   <td>From
+      <input type="date" name="textfield" id="textfield" class="form-control"required/></td>
+    <td>To
+      <input type="date" name="textfield2" id="textfield2" class="form-control"required/></td>
+    <td><input type="submit" name="button" id="button" value="GO" class="btn btn-success"/></td>
+  </tr>
+</table>
+  <table class="table table-bordered">
+    <tr>
+          <th width="60" height="27" scope="col">SL no</th>
+      <th width="116" scope="col">Booked date</th>
+      <th width="113" scope="col">User Details</th>
+      <th width="83" scope="col">Package Details</th>
+      <th width="85" scope="col"></th>
+      <th width="83" scope="col">&nbsp;</th>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.USER.uname }}<br>
+      {{ i.USER.place }}<br> {{ i.USER.post }}<br> {{ i.USER.pin}}
+      <br>{{ i.USER.phonenumber }}</td>
+        <td><img src="{{ i.TREATMENTPACKAGE.image }}" width="100px" height="100px"> <br>{{ i.TREATMENTPACKAGE.Packagename }}<br>{{ i.TREATMENTPACKAGE.amount }}<br>{{ i.TREATMENTPACKAGE.details }}<br></td>
+              </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+{% endblock %}

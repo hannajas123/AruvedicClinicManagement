@@ -1,0 +1,28 @@
+{% extends "staff/staffhomeindex.html" %}
+{% block body %}
+<form action="" method="post">
+
+  <table class="table table-bordered">
+    <tr>
+      <td>Sl no</td>
+      <td>Date</td>
+      <td>Stock</td>
+      <td>Medicine Details</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.stock }}</td>
+      <td>
+          {{ i.MEDICINCE.mname }}<br>
+          {{ i.MEDICINCE.description }}<br>
+          {{ i.MEDICINCE.amount }}<br>
+      </td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends "therapist/therapisthomeindex.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/therapist_addprescriptionppost/">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{ id }}"/>
+  <table class="table table-bordered">
+    <tr>
+      <td>Therapist</td>
+      <td><textarea name="textarea" cols="10" rows="6"required class="form-control"></textarea></td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><input type="submit" name="button" id="button" value="Save" class="btn btn-success"/></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

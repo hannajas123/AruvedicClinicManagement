@@ -1,0 +1,87 @@
+{% extends "admin/adminhomeindex.html" %}
+{% block body %}
+
+<body>    <form id="form2" name="form2" enctype="multipart/form-data" method="post" action="/myapp/admin_editstaff_post/">
+    {% csrf_token %}
+
+<table  class="table table-bordered">
+  <tr>
+    <td width="91" scope="col">Name</td>
+    <td width="254" scope="col">
+      <input type="hidden" name="id" id="name" value="{{ data.id }}" />
+      <input type="text" name="name" id="name" value="{{ data.sname }}" required class="form-control"/>
+    </td>
+  </tr>
+  <tr>
+    <td>DOB</td>
+    <td><input type="text" name="textfield2"  value="{{ data.dob }}" id="textfield2" required class="form-control"/></td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+   <td>
+      <select name="RadioGroup1" class="form-control">
+          <option value="{{ data.gender }}">{{ data.gender }}</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+      </select>
+  </td>
+  </tr>
+
+  <tr>
+    <td>Place</td>
+    <td>
+      <input type="text" name="place" id="place" value="{{ data.place }}"required class="form-control" />
+    </td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td>
+      <input type="text" name="phone" id="phone" value="{{ data.phno }}" required class="form-control"/>
+    </td>
+  </tr>
+  <tr>
+    <td>Department</td>
+    <td>
+      <input type="text" name="dpt" id="dpt" value="{{ data.department }}" required class="form-control"/>
+   </td>
+  </tr>
+  <tr>
+    <td>E-mail</td>
+    <td>
+      <input type="text" name="email" id="email" value="{{ data.email }}" required class="form-control"/>
+  </td>
+  </tr>
+  <tr>
+    <td>Pin</td>
+    <td>
+      <input type="text" name="pin" id="pin" value="{{ data.pin }}" required class="form-control"/>
+   </td>
+  </tr>
+  <tr>
+    <td>Post</td>
+    <td>
+      <input type="text" name="post" id="post" value="{{ data.post }}"required class="form-control"/>
+    </td>
+  </tr>
+  <tr>
+    <td>Photo</td>
+
+    <td>
+        <img src="{{ data.photo }}" width="100px" height="100px">
+      <input type="file" name="photo" id="photo" />
+    </td>
+  </tr>
+  <tr>
+    <td>Qualification</td>
+    <td><input type="text" name="textfield3" id="textfield3"  value="{{ data.qualification }}"required class="form-control"/></td>
+  </tr>
+
+  <tr>
+  <td align="center" colspan="2"><input type="submit"  class="btn btn-success"/></td>
+
+  </tr>
+</table>
+    </form>
+</body>
+{% endblock %}

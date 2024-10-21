@@ -1,0 +1,32 @@
+{% extends "staff/staffhomeindex.html" %}
+{% block body %}
+<form action="/myapp/staff_edit_treatmentpackages_post/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+    <table class="table table-bordered">
+  <tr>
+    <td>Package</td>
+    <td>
+        <input type="hidden" name="id" value="{{ data.id }}" class="form-control" required>
+        <input type="text" name="textfield" id="textfield" value="{{ data.Packagename }}" class="form-control" required>
+    </td>
+  </tr>
+  <tr>
+    <td>Amount</td>
+    <td><input type="text" name="textfield2" id="textfield2"  value="{{ data.amount }}" class="form-control" required></td>
+  </tr><tr>
+    <td>Image</td>
+    <td>
+        <img src="{{ data.image }}" height="100px" width="100px">
+        <input type="file" name="image" id="textfield2" class="form-control" required></td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td><textarea name="textarea" id="textarea" class="form-control"  required>{{ data.details }}</textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input type="submit" name="button" id="button" value="ADD" class="btn btn-success"></td>
+  </tr>
+</table>
+</form>
+{% endblock %}

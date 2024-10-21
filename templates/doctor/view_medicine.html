@@ -1,0 +1,32 @@
+{% extends "doctor/doctorhomeindex.html" %}
+{% block body %}
+<form action="/myapp/pharmacy_viewmedicinepost/" method="post"><table class="table table-bordered">
+    {% csrf_token %}
+  <tr>
+    <td><input type="text" name="textfield" id="textfield"  class="form-control" required></td>
+    <td><input type="submit" name="button" id="button" value="GO" class="btn btn-success"></td>
+  </tr>
+</table>
+  <table class="table table-bordered">
+    <tr>
+      <td width="62" height="62">Sl no</td>
+      <td width="140">Medicine name</td>
+      <td width="87">Amount</td>
+      <td width="113">Description</td>
+      <td width="49">&nbsp;</td>
+      <td width="82">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}&nbsp;</td>
+      <td>&nbsp;{{ i.mname }}</td>
+      <td>{{ i.amount }}</td>
+      <td>&nbsp;{{ i.description }}</td>
+      <td><a href="/myapp/pharmacy_editmedicine/{{ i.id }}" class="btn btn-info">Edit</a></td>
+      <td><a href="/myapp/pharmacy_deletemedicine/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+{% endblock %}

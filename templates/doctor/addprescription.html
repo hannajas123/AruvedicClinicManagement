@@ -1,0 +1,20 @@
+{% extends "doctor/doctorhomeindex.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/doctor_assign_therapist_post/">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{ id }}"/>
+  <table class="table table-bordered">
+    <tr>
+      <td>Therapist</td>
+      <td><select name="textarea" required class="form-control">
+          {% for i in data %}
+              <option value="{{ i.id }}">{{ i.tname }}</option>
+          {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><input type="submit" name="button" id="button" value="Save" class="btn btn-success"/></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

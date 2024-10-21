@@ -1,0 +1,40 @@
+{% extends "admin/adminhomeindex.html" %}
+{% block body %}
+<form action="/myapp/doctor_Doctorviewschedulepost/" method="post">
+    <table class="table table-bordered">
+    {% csrf_token %}
+
+  <tr>
+    <th width="218" height="34" scope="col">From
+      <input type="date" name="from" id="from" class="form-control" required/></th>
+    <th width="258" scope="col">To
+      <input type="date" name="to" id="to" class="form-control" required/></th>
+    <th width="336" scope="col"><p>
+      <input type="submit" name="GO" id="GO" value="GO" class="btn btn-success"/>
+    </p></th>
+  </tr>
+</table>
+  <p>&nbsp;</p>
+</form>
+<table class="table table-bordered">
+  <tr>
+    <th width="100" height="27" scope="col">Sl No.</th>
+    <th width="100" scope="col">Date</th>
+    <th width="155" scope="col">From-time</th>
+    <th width="166" scope="col">To-time</th>
+    <th width="81" scope="col">&nbsp;</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}&nbsp;</td>
+    <td>&nbsp;{{ i.date }}</td>
+    <td>&nbsp;{{ i.fromtime }}</td>
+    <td>&nbsp;{{ i.totime }}</td>
+
+    <td><a href="/myapp/doctor_editschedule/{{ i.id }}">Edit</a></td>
+    <td><a href="/myapp/doctor_Doctordeleteschedule/{{ i.id }}">Delete</a></td>
+    <td><a href="/myapp/doctor_viewdoctorbooking/{{ i.id }}">Appointments</a></td>
+  </tr>
+    {% endfor %}
+</table>
+{% endblock %}

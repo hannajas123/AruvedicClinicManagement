@@ -1,0 +1,49 @@
+{% extends "doctor/doctorhomeindex.html" %}
+{% block body %}
+<table class="table table-bordered">
+  <tr>
+    <td>Photo</td>
+    <td><img src="{{data.photo }}" width="100px" height="100px"></td>
+  </tr><tr>
+    <td>Name</td>
+    <td>{{ data.dname }}</td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td>{{ data.place }}</td>
+  </tr>
+  <tr>
+    <td><p>DOB</p></td>
+    <td>{{ data.dob }}&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td>Gender</td>
+    <td>{{ data.gender }}</td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td>{{ data.place }}&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Post</td>
+    <td>{{ data.post }}</td>
+  </tr>
+  <tr>
+    <td>Pin</td>
+    <td>{{ data.pin }}&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Department</td>
+    <td>{{ data.department }}&nbsp;</td>
+  </tr>
+  <tr>
+    <td>E-mail</td>
+    <td>{{ data.email }}&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td>{{ data.phno }}&nbsp;</td>
+  </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "doctor/doctorhomeindex.html" %}
+{% block body %}
+<form action="" method="post">
+  <table class="table table-bordered">
+    <tr>
+      <th scope="col">From date</th>
+      <th scope="col"><input type="date" name="textfield" class="form-control"id="textfield"required /></th>
+      <th scope="col">To date</th>
+      <th scope="col"><input type="date" name="textfield2"class="form-control" id="textfield2"required /></th>
+      <th scope="col"><input type="submit" name="button" id="button" value="GO" class="btn btn-success" /></th>
+    </tr>
+  </table >
+  <table class="table table-bordered">
+    <tr>
+      <td>Sl no</td>
+      <td>Date</td>
+      <td>Prescreption</td>
+      <td>Doctor name</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.APPOINTEMENT.date }}</td>
+      <td>&nbsp;{{ i.prescription }}</td>
+      <td>{{ i.APPOINTEMENT.SCHEDULE.DOCTOR.dname }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+{% endblock %}
+

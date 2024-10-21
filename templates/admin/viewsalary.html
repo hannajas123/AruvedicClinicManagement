@@ -1,0 +1,40 @@
+{% extends "admin/adminhomeindex.html" %}
+{% block body %}
+<form action="/myapp/doctor_Doctorviewschedulepost/" method="post">
+    <table class="table table-bordered">
+    {% csrf_token %}
+
+  <tr>
+    <th width="218" height="34" scope="col">From
+      <input type="date" name="from" id="from" class="form-control" required/></th>
+    <th width="258" scope="col">To
+      <input type="date" name="to" id="to" class="form-control" required/></th>
+    <th width="336" scope="col"><p>
+      <input type="hidden" name="id"  value="{{ id }}"/>
+      <input type="submit" name="GO" id="GO" value="GO" class="btn btn-success"/>
+    </p></th>
+  </tr>
+</table>
+  <p>&nbsp;</p>
+</form>
+<table class="table table-bordered">
+  <tr>
+    <th width="100" height="27" scope="col">Sl No.</th>
+    <th width="100" scope="col">Year</th>
+    <th width="155" scope="col">month</th>
+    <th width="166" scope="col">Date</th>
+    <th width="81" scope="col">&nbsp;Amount</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}&nbsp;</td>
+    <td>&nbsp;{{ i.Year }}</td>
+    <td>&nbsp;{{ i.month }}</td>
+    <td>&nbsp;{{ i.date }}</td>
+    <td>&nbsp;{{ i.Amount }}</td>
+
+    <td><a href="/myapp/admindelete_salary/{{ i.id }}">Delete</a></td>
+  </tr>
+    {% endfor %}
+</table>
+{% endblock %}

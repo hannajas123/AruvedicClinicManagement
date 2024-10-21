@@ -1,0 +1,23 @@
+{% extends "doctor/doctorhomeindex.html" %}
+{% block body %}
+<form action="/myapp/pharmacy_editmedicinepost/" method="post"><table class="table table-bordered">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{ data.id }}">
+  <tr>
+    <td>Medicine name</td>
+    <td><input type="text" name="textfield" class="form-control"id="textfield" value="{{ data.mname }}"required></td>
+  </tr>
+  <tr>
+    <td>Amount</td>
+    <td><input type="text" name="textfield2" class="form-control"id="textfield2" value="{{ data.amount }}"required></td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td><textarea name="textarea" id="textarea"class="form-control" required>{{ data.description }}</textarea></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2"><input type="submit" name="button" id="button" value="ADD" class="btn btn-success"></td>
+  </tr>
+</table>
+</form>
+{% endblock %}

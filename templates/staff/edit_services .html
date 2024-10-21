@@ -1,0 +1,27 @@
+{% extends "staff/staffhomeindex.html" %}
+{% block body %}
+<form action="/myapp/staff_editService_entry_post/" method="post">
+        {% csrf_token %}
+
+    <table class="table table-bordered">
+  <tr>
+    <td>Service</td>
+    <td>
+        <input type="text" name="textfield" id="textfield" class="form-control" value="{{ data.service }}" required>
+        <input type="hidden" name="id" value="{{ data.id }}" class="form-control" required>
+    </td>
+  </tr>
+  <tr>
+    <td>Amount</td>
+    <td><input type="text" name="textfield2" id="textfield2"  value="{{ data.amount }}" class="form-control" required></td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td><textarea name="textarea" id="textarea" class="form-control" required>{{ data.details }}</textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input type="submit" name="button" id="button" value="ADD" class="btn btn-success"></td>
+  </tr>
+</table>
+</form>
+{% endblock %}

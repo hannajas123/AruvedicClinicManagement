@@ -1,0 +1,36 @@
+{% extends "admin/adminhomeindex.html" %}
+{% block body %}
+<form action="/myapp/doctor_viewdoctorbookingpost/" method="post">
+    <table class="table table-bordered">
+    {% csrf_token %}
+  <tr>
+      <input type="hidden" name="id" value="{{ id }}" />
+   <td>From
+      <input type="date" name="textfield" id="textfield" class="form-control" required/></td>
+    <td>To
+      <input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+    <td><input type="submit" name="button" id="button" value="GO" class="btn btn-success"/></td>
+  </tr>
+</table>
+  <table class="table table-bordered">
+    <tr>
+      <th width="60" height="27" scope="col">SL no</th>
+      <th width="116" scope="col">Booked date</th>
+      <th width="113" scope="col">User details</th>
+      <th width="83" scope="col">service</th>
+      <th width="85" scope="col">status</th>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.USER.uname }}<br>{{ User.email }}<br>{{ i.USER.phonenumber }}</td>
+      <td>&nbsp;{{ i.service.service }}<br> {{ i.service.amount }}<br> {{ i.service.details}}<br> {{ i.service.STAFF.sname}}</td>
+      <td>&nbsp;{{ i.status }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+{% endblock %}

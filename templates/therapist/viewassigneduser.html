@@ -1,0 +1,27 @@
+{% extends "therapist/therapisthomeindex.html" %}
+{% block body %}
+<form action="" method="post">
+
+  <table class="table table-bordered">
+    <tr>
+      <td>Sl no</td>
+      <td>Date</td>
+      <td>User info</td>
+      <td>Doctor info</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.APPOINTMENT.USER.uname }}<br>{{ i.APPOINTMENT.USER.email }}<br>{{ i.APPOINTMENT.USER.phonenumber }}</td>
+      <td>{{ i.APPOINTMENT.SCHEDULE.DOCTOR.dname }}</td>
+    <td><a href="/myapp/therapist_addprescription/{{ i.APPOINTMENT.id }}" class="btn btn-info">Add prescription</a></td>
+      <td><a href="/myapp/therapist_viewprescription/{{ i.APPOINTMENT.id }}" class="btn btn-info">View prescription</a></td>
+
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+{% endblock %}
+

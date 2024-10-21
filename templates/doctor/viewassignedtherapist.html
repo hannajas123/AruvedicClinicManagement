@@ -1,0 +1,24 @@
+{% extends "doctor/doctorhomeindex.html" %}
+{% block body %}
+<form action="" method="post">
+
+  <table class="table table-bordered">
+    <tr>
+      <td>Sl no</td>
+      <td>Date</td>
+      <td>Therapist</td>
+      <td>Schedule id</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.THERAPIST.tname }}</td>
+      <td>{{ i.APPOINTMENT.SCHEDULE.id }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+{% endblock %}
+

@@ -1,0 +1,46 @@
+{% extends "staff/staffhomeindex.html" %}
+{% block body %}
+<table class="table table-bordered">
+  <tr>
+    <td>Name</td>
+    <td>{{ data.dname }}</td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td>{{ data.place }}</td>
+  </tr>
+  <tr>
+    <td><p>DOB</p></td>
+    <td>{{ data.dob }}&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td>Gender</td>
+    <td>{{ data.gender }}</td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td>{{ data.place }}&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Post</td>
+    <td>{{ data.post }}</td>
+  </tr>
+  <tr>
+    <td>Pin</td>
+    <td>{{ data.pin }}&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Department</td>
+    <td>{{ data.department }}&nbsp;</td>
+  </tr>
+  <tr>
+    <td>E-mail</td>
+    <td>{{ data.email }}&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td>{{ data.phno }}&nbsp;</td>
+  </tr>
+</table>
+{% endblock %}
